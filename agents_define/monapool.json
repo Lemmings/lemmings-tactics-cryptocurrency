@@ -1,0 +1,28 @@
+[
+{
+ "plugin":"in_coinpool",
+ "args":{
+  "pools":[
+   {"url":"http://mona1.monapool.com","key":"","api":"getpoolstatus"},
+   {"url":"http://mona2.monapool.com","key":"","api":"getpoolstatus"},
+   {"url":"http://mona.2chpool.com","key":"","api":"getpoolstatus"},
+   {"url":"http://gikopool.net","key":"","api":"getpoolstatus"},
+   {"url":"http://vippool.net","key":"","api":"getpoolstatus"},
+   {"url":"http://mona.pool.null-x.me","key":"","api":"getpoolstatus"}
+  ]
+ }
+},
+{
+ "plugin":"out_file_json",
+ "args":{
+  "input":"in_coinpool",
+  "file":"/tmp/coinpool.json"
+ }
+},
+{
+ "plugin":"sleep",
+ "args":{
+  "timer":300
+ }
+}
+]

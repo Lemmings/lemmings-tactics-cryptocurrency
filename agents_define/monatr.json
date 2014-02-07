@@ -1,0 +1,24 @@
+[
+{
+ "plugin":"in_monatr",
+ "args":{
+  "pools":[
+   {"url":"api.monatr.jp","api":"ticker","param":"market=BTC_MONA"},
+   {"url":"api.monatr.jp","api":"ticker","param":"market=LTC_MONA"}
+  ]
+ }
+},
+{
+ "plugin":"out_file_json",
+ "args":{
+  "input":"in_monatr",
+  "file":"/tmp/monatr.json"
+ }
+},
+{
+ "plugin":"sleep",
+ "args":{
+  "timer":300
+ }
+}
+]
