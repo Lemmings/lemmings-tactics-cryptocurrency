@@ -10,25 +10,20 @@ exports.run = function(inputTools, callback){
     });
     args.pools.forEach(function(v){
         var url = v.url+'/index.php?page=api&action='+v.api+'&api_key='+v.key;
-        var work = url.split("://");
+        var work = v.url.split("://");
+        var http_get = inputTools.http_get;
         if(work[0] === 'https'){
-            async.inc();
-            inputTools.https_get(url, function(err, res){
-                if(err){
-                }else{
-                    lists.push(JSON.parse(res));
-                }
-                async.dec();
-            });
-        }else{
-            async.inc();
-            inputTools.http_get(url, function(err, res){
-                if(err){
-                }else{
-                    lists.push(JSON.parse(res));
-                }
-                async.dec();
-            });
+            http_get = inputTools.https_get;
         }
+        async.inc();
+        http_get(url, function(err, res){
+            if(err){
+            }else{
+                var w = JSON.parse(res);
+                w.getpoolstatus.data.pool_name = work[1]
+                lists.push(w);
+            }
+            async.dec();
+        });
     });
 };

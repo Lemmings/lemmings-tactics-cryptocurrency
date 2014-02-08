@@ -8,7 +8,8 @@
    {"url":"http://mona.2chpool.com","key":"","api":"getpoolstatus"},
    {"url":"http://gikopool.net","key":"","api":"getpoolstatus"},
    {"url":"http://vippool.net","key":"","api":"getpoolstatus"},
-   {"url":"http://mona.pool.null-x.me","key":"","api":"getpoolstatus"}
+   {"url":"http://mona.pool.null-x.me","key":"","api":"getpoolstatus"},
+   {"url":"https://www.cryptopoolmining.com/mona","key":"","api":"getpoolstatus"}
   ]
  }
 },
