@@ -9,10 +9,10 @@ exports.run = function(inputTools, callback){
         callback(null, lists);
     });
     args.api.forEach(function(v){
-        var url = 'http://data.mtgox.com/api/2/' + v;
+        var url = 'https://btc-e.com/api/2/' + v;
         async.inc();
         try{
-            inputTools.http_get(url, function(err, res){
+            inputTools.https_get(url, function(err, res){
                 if(err){
                     console.error(err.stack);
                 }else{
@@ -21,7 +21,7 @@ exports.run = function(inputTools, callback){
                 async.dec();
             });
         }catch(err){
-            console.error(err.stack);
+            console.log(err.stack);
             async.dec();
         }
     });

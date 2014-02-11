@@ -3,8 +3,8 @@
  "plugin":"in_mtgox",
  "args":{
   "api":[
-   {"api":"BTCUSD/money/ticker"},
-   {"api":"BTCJPY/money/ticker"}
+   "BTCUSD/money/ticker",
+   "BTCJPY/money/ticker"
   ]
  }
 },
@@ -18,7 +18,7 @@
 {
  "plugin":"sleep",
  "args":{
-  "timer":300
+  "timer":150
  }
 }
 ]

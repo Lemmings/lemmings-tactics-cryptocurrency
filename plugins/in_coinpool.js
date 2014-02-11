@@ -16,14 +16,20 @@ exports.run = function(inputTools, callback){
             http_get = inputTools.https_get;
         }
         async.inc();
-        http_get(url, function(err, res){
-            if(err){
-            }else{
-                var w = JSON.parse(res);
-                w.getpoolstatus.data.pool_name = work[1]
-                lists.push(w);
-            }
+        try{
+            http_get(url, function(err, res){
+                if(err){
+                    console.error(err.stack);
+                }else{
+                    var w = JSON.parse(res);
+                    w.getpoolstatus.data.pool_name = work[1]
+                    lists.push(w);
+                }
+                async.dec();
+            });
+        }catch(err){
+            console.error(err.stack);
             async.dec();
-        });
+        }
     });
 };
