@@ -1,4 +1,8 @@
+var agent = null;                                                                                                                            
+var http = null;
 exports.initialize = function(){
+    http = require('http');                                                                                                                  
+    agent = new http.Agent({maxSockets: 1});                                                                                                 
 };
 exports.finalize = function(){
 };
@@ -13,7 +17,7 @@ exports.run = function(inputTools, callback){
         async.inc();
         try{
             var url = BASE_URL + v;
-            inputTools.http_get(url, function(err, res){
+            inputTools.http_get(url, agent, function(err, res){
                 if(err){
                     console.error(err.stack);
                 }else{
