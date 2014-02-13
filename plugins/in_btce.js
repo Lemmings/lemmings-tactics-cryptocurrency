@@ -17,9 +17,13 @@ exports.run = function(inputTools, callback){
                 if(err){
                     console.error(err.stack);
                 }else{
-                    var w = JSON.parse(res);
-                    w.api = v;
-                    lists.push(w);
+                    try{
+                        var w = JSON.parse(res);
+                        w.api = v;
+                        lists.push(w);
+                    }catch(e){
+                        console.log(e.stack);
+                    }
                 }
                 async.dec();
             });
