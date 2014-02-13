@@ -1,0 +1,42 @@
+[
+{
+ "plugin":"in_btce",
+ "args":{
+  "api" : [
+    "ltc_usd/ticker",
+    "btc_usd/ticker",
+    "ltc_btc/ticker",
+    "xpm_btc/ticker",
+    "ftc_btc/ticker"
+  ]
+ }
+},
+{
+ "plugin":"task_btce_current_tick",
+ "args":{
+  "input":"in_btce"
+ }
+},
+{
+ "plugin":"out_redis_hash",
+ "args":{
+  "hashkey" : "current_tick",
+  "hashname" : "btce",
+  "input":"task_btce_current_tick"
+ }
+},
+{
+ "plugin":"out_redis_publish",
+ "args":{
+  "channel" : "current_tick",
+  "key" : "btce",
+  "input":"task_btce_current_tick"
+ }
+},
+{
+ "plugin":"sleep",
+ "args":{
+  "timer":60
+ }
+}
+]

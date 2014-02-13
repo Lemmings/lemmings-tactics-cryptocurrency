@@ -1,8 +1,8 @@
-var agent = null;                                                                                                                            
-var http = null;
+var agent = null;
+var https = null;
 exports.initialize = function(){
-    http = require('http');                                                                                                                  
-    agent = new http.Agent({maxSockets: 1});                                                                                                 
+    https = require('https');
+    agent = new https.Agent({maxSockets: 1});
 };
 exports.finalize = function(){
 };
@@ -13,7 +13,7 @@ exports.run = function(inputTools, callback){
         if(lists.length > 0){
             callback(null, lists);
         }else{
-            callback(new Error('error'), []);
+            callback(null, []);
         }
     });
     var BASE_URL = 'https://btc-e.com/api/2/';
