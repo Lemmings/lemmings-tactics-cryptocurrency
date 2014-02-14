@@ -1,8 +1,8 @@
 var agent = null;                                                                                                                            
-var http = null;
+var https = null;
 exports.initialize = function(){
-    http = require('http');                                                                                                                  
-    agent = new http.Agent({maxSockets: 1});                                                                                                 
+    https = require('https');                                                                                                                  
+    agent = new https.Agent({maxSockets: 1});                                                                                                 
 };
 exports.finalize = function(){
 };
@@ -18,12 +18,11 @@ exports.run = function(inputTools, callback){
         async.inc();
         try{
             var url = BASE_URL + v;
-            inputTools.http_get(url, agent, function(err, res){
+            inputTools.https_get(url, agent, function(err, res){
                 if(err){
                     console.error(err.stack);
                 }else{
                     var w = JSON.parse(res);
-                    w.api = v;
                     lists.push(w);
                 }
                 async.dec();
