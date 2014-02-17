@@ -31,9 +31,13 @@ exports.run = function(inputTools, callback){
                 if(err){
                     console.error(err.stack);
                 }else{
-                    var w = JSON.parse(res);
-                    w.getpoolstatus.data.pool_name = work[1]
-                    lists.push(w);
+                    try{
+                        var w = JSON.parse(res);
+                        w.getpoolstatus.data.pool_name = work[1]
+                        lists.push(w);
+                    }catch(err){
+                        console.error(err.stack);
+                    }
                 }
                 async.dec();
             });
