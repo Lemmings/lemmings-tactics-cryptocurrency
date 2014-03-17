@@ -1,35 +1,24 @@
-var agent = null;                                                                                                                            
-var http = null;
-exports.initialize = function(){
-    http = require('http');                                                                                                                  
-    agent = new http.Agent({maxSockets: 1});                                                                                                 
-};
-exports.finalize = function(){
-};
+exports.initialize = function(){};
+exports.finalize = function(){};
 exports.run = function(inputTools, callback){
     var args = inputTools.args();
     var lists = [];
     var async = new inputTools.SimpleAsync(function(){
         callback(null, lists);
     });
+    var crawler = inputTools.crawler;
     var BASE_URL = 'http://data.mtgox.com/api/2/';
     args.api.forEach(function(v){
+        var url = BASE_URL + v;
         async.inc();
-        try{
-            var url = BASE_URL + v;
-            inputTools.http_get(url, agent, function(err, res){
-                if(err){
-                    console.error(err.stack);
-                }else{
-                    var w = JSON.parse(res);
-                    w.api = v;
-                    lists.push(w);
-                }
-                async.dec();
-            });
-        }catch(err){
-            console.error(err.stack);
+        crawler.request_get_json(url, function(err, res){
+            if(err){
+                console.error('%s:%s', url, err.stack);
+            }else{
+                res.api = v;
+                lists.push(res);
+            }
             async.dec();
-        }
+        });
     });
 };
