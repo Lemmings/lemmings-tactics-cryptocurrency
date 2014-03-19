@@ -20,7 +20,7 @@
  "plugin":"out_file_json",
  "args":{
   "input":"in_miningpool_status",
-  "file":"/tmp/coinpool.json"
+  "file":"/tmp/monacoin_pool_status.json"
  }
 },
 {

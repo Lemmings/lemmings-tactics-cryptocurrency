@@ -12,7 +12,7 @@
  "plugin":"out_file_json",
  "args":{
   "input":"in_miningpool_status",
-  "file":"/tmp/coinpool.json"
+  "file":"/tmp/sakuracoin_pool_status.json"
  }
 },
 {
