@@ -2,7 +2,7 @@
 {
  "plugin":"in_mtgox",
  "args":{
-  "api":[
+  "list":[
    "BTCUSD/money/ticker",
    "BTCJPY/money/ticker"
   ]
