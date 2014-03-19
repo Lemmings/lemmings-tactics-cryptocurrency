@@ -2,7 +2,11 @@
 {
  "plugin":"in_btce",
  "args":{
-  "api" : ["btc_usd/ticker", "ltc_usd/ticker", "ltc_btc/ticker"]
+  "list" : [
+   "btc_usd/ticker",
+   "ltc_usd/ticker",
+   "ltc_btc/ticker"
+  ]
  }
 },
 {
