@@ -1,0 +1,38 @@
+[
+{
+ "plugin":"in_bitstamp",
+ "args":{
+  "api" : [
+   "ticker/"
+  ]
+ }
+},
+{
+ "plugin":"task_bitstamp_current_tick",
+ "args":{
+  "input":"in_bitstamp"
+ }
+},
+{
+ "plugin":"out_redis_hash",
+ "args":{
+  "hashkey" : "current_tick",
+  "hashname" : "bitstamp",
+  "input":"task_bitstamp_current_tick"
+ }
+},
+{
+ "plugin":"out_redis_publish",
+ "args":{
+  "channel" : "current_tick",
+  "key" : "bitstamp",
+  "input":"task_bitstamp_current_tick"
+ }
+},
+{
+ "plugin":"sleep",
+ "args":{
+  "timer":30
+ }
+}
+]

@@ -1,0 +1,39 @@
+[
+{
+ "plugin":"in_mtgox",
+ "args":{
+  "api":[
+   "BTCUSD/money/ticker",
+   "BTCJPY/money/ticker"
+  ]
+ }
+},
+{
+ "plugin":"task_mtgox_current_tick",
+ "args":{
+  "input":"in_mtgox"
+ }
+},
+{
+ "plugin":"out_redis_hash",
+ "args":{
+  "hashkey" : "current_tick",
+  "hashname" : "mtgox",
+  "input":"task_mtgox_current_tick"
+ }
+},
+{
+ "plugin":"out_redis_publish",
+ "args":{
+  "channel" : "current_tick",
+  "key" : "mtgox",
+  "input":"task_mtgox_current_tick"
+ }
+},
+{
+ "plugin":"sleep",
+ "args":{
+  "timer":60
+ }
+}
+]

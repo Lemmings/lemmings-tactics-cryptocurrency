@@ -2,9 +2,9 @@
 {
  "plugin":"in_monatr",
  "args":{
-  "pools":[
-   {"url":"api.monatr.jp","api":"ticker","param":"market=BTC_MONA"},
-   {"url":"api.monatr.jp","api":"ticker","param":"market=LTC_MONA"}
+  "list":[
+   "ticker?market=BTC_MONA",
+   "ticker?market=LTC_MONA"
   ]
  }
 },

@@ -1,0 +1,40 @@
+[
+{
+ "plugin":"in_monatr",
+ "args":{
+  "pools":[
+   {"url":"api.monatr.jp","api":"ticker","param":"market=XPM_MONA"},
+   {"url":"api.monatr.jp","api":"ticker","param":"market=BTC_MONA"},
+   {"url":"api.monatr.jp","api":"ticker","param":"market=LTC_MONA"}
+  ]
+ }
+},
+{
+ "plugin":"task_monatr_current_tick",
+ "args":{
+  "input":"in_monatr"
+ }
+},
+{
+ "plugin":"out_redis_hash",
+ "args":{
+  "hashkey" : "current_tick",
+  "hashname" : "monatr",
+  "input":"task_monatr_current_tick"
+ }
+},
+{
+ "plugin":"out_redis_publish",
+ "args":{
+  "channel" : "current_tick",
+  "key" : "monatr",
+  "input":"task_monatr_current_tick"
+ }
+},
+{
+ "plugin":"sleep",
+ "args":{
+  "timer":60
+ }
+}
+]
