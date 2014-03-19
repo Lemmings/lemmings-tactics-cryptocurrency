@@ -2,16 +2,17 @@ exports.initialize = function(){};
 exports.finalize = function(){};
 exports.run = function(inputTools, callback){
     var args = inputTools.args();
-    var lists = [];
+    var crawler = inputTools.crawler;
+    var results = [];
     var async = new inputTools.SimpleAsync(function(){
-        callback(null, lists);
+        callback(null, results);
     });
-    args.pools.forEach(function(v){
-        var url = 'http://'+v.url+'/'+v.api+'?'+v.param;
+    args.list.forEach(function(v){
+        var url = 'http://api.monatr.jp/' + v;
         async.inc();
-        inputTools.crawler.request_get_json(url, function(err, res){
+        crawler.request_get_json(url, function(err, res){
             if(!err){
-                lists.push(res);
+                results.push(res);
             }
             async.dec();
         });
