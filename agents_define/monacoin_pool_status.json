@@ -1,0 +1,32 @@
+[
+{
+ "plugin":"in_miningpool_status",
+ "args":{
+  "list":[
+   "http://mona1.monapool.com",
+   "http://mona2.monapool.com",
+   "http://mona.2chpool.com",
+   "http://gikopool.net",
+   "http://vippool.net",
+   "http://mona.pool.null-x.me",
+   "http://hattenba.net",
+   "http://mona.xxpoolxx.net",
+   "https://mona.milkteafuzz.com",
+   "https://www.cryptopoolmining.com/mona"
+  ]
+ }
+},
+{
+ "plugin":"out_file_json",
+ "args":{
+  "input":"in_miningpool_status",
+  "file":"/tmp/coinpool.json"
+ }
+},
+{
+ "plugin":"sleep",
+ "args":{
+  "timer":300
+ }
+}
+]
