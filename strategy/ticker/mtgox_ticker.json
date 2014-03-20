@@ -1,6 +1,6 @@
 [
 {
- "plugin":"in_mtgox",
+ "tactics":"in_mtgox",
  "args":{
   "list":[
    "BTCUSD/money/ticker",
@@ -9,14 +9,14 @@
  }
 },
 {
- "plugin":"out_file_json",
+ "tactics":"out_file_json",
  "args":{
   "input":"in_mtgox",
   "file":"/tmp/mtgox.json"
  }
 },
 {
- "plugin":"sleep",
+ "tactics":"settimer",
  "args":{
   "timer":150
  }

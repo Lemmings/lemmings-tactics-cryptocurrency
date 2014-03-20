@@ -1,6 +1,6 @@
 [
 {
- "plugin":"in_btce",
+ "tactics":"in_btce",
  "args":{
   "list" : [
    "btc_usd/ticker",
@@ -10,16 +10,16 @@
  }
 },
 {
- "plugin":"out_file_json",
+ "tactics":"out_file_json",
  "args":{
   "input":"in_btce",
   "file":"/tmp/btce.json"
  }
 },
 {
- "plugin":"sleep",
+ "tactics":"settimer",
  "args":{
-  "timer":300
+  "timer":60
  }
 }
 ]

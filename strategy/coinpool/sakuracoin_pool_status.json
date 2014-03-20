@@ -1,6 +1,6 @@
 [
 {
- "plugin":"in_miningpool_status",
+ "tactics":"in_miningpool_status",
  "args":{
   "list":[
    "http://sakurapool.dip.jp",
@@ -9,14 +9,14 @@
  }
 },
 {
- "plugin":"out_file_json",
+ "tactics":"out_file_json",
  "args":{
   "input":"in_miningpool_status",
-  "file":"/tmp/sakuracoin_pool_status.json"
+  "file":"/tmp/sakura_coinpool.json"
  }
 },
 {
- "plugin":"sleep",
+ "tactics":"settimer",
  "args":{
   "timer":300
  }

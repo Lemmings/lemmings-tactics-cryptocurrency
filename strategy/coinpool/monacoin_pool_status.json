@@ -1,6 +1,6 @@
 [
 {
- "plugin":"in_miningpool_status",
+ "tactics":"in_miningpool_status",
  "args":{
   "list":[
    "http://mona1.monapool.com",
@@ -17,14 +17,14 @@
  }
 },
 {
- "plugin":"out_file_json",
+ "tactics":"out_file_json",
  "args":{
   "input":"in_miningpool_status",
-  "file":"/tmp/monacoin_pool_status.json"
+  "file":"/tmp/coinpool.json"
  }
 },
 {
- "plugin":"sleep",
+ "tactics":"settimer",
  "args":{
   "timer":300
  }

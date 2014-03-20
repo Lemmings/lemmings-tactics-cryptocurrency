@@ -1,6 +1,6 @@
 [
 {
- "plugin":"in_monatr",
+ "tactics":"in_monatr",
  "args":{
   "list":[
    "ticker?market=BTC_MONA",
@@ -9,14 +9,14 @@
  }
 },
 {
- "plugin":"out_file_json",
+ "tactics":"out_file_json",
  "args":{
   "input":"in_monatr",
   "file":"/tmp/monatr.json"
  }
 },
 {
- "plugin":"sleep",
+ "tactics":"settimer",
  "args":{
   "timer":300
  }
