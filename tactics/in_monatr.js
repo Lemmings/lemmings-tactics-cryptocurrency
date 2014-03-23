@@ -8,7 +8,7 @@ exports.run = function(inputTools, callback){
         callback(null, results);
     });
     args.list.forEach(function(v){
-        var url = 'http://api.monatr.jp/' + v;
+        var url = 'https://api.monatr.jp/' + v;
         async.inc();
         crawler.request_get_json(url, function(err, res){
             if(!err){
