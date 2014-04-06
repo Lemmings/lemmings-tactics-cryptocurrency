@@ -25,7 +25,7 @@ var getRate = function(data, coin){
 exports.run = function(inputTools, callback){
     var args = inputTools.args();
     var crawler = inputTools.crawler;
-    var url = 'www.sighash.info';
+    var url = 'http://www.sighash.info/';
     var result = {
         account : 0,
         coins : [],
