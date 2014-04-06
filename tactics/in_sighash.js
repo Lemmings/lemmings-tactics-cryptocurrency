@@ -37,6 +37,7 @@ exports.run = function(inputTools, callback){
             result.coins.push(getRate(data, 'sha1coin'));
             result.coins.push(getRate(data, 'sakuracoin'));
             result.coins.push(getRate(data, 'sayacoin'));
+            result.coins.push(getRate(data, 'monacoin'));
         }
         callback(null, result);
     });
