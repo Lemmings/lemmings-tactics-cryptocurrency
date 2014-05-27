@@ -13,13 +13,14 @@ var getRate = function(data, coin){
     var amount = w[0];
     p = p[1].split(')');
     p = p[0].split(',');
-    var bid = p[0].replace('XRP','').replace('Bid','');
-    var ask = p[1].replace('XRP','').replace('Ask','');
+    var bid = parseFloat(p[0].replace('XRP','').replace('Bid',''));
+    var ask = parseFloat(p[1].replace('XRP','').replace('Ask',''));
     return {
         name : coin,
         amount : parseFloat(amount),
-        ask : parseFloat(ask),
-        bid : parseFloat(bid),
+        ask : ask,
+        bid : bid,
+        avg : (bid + ask) / 2,
     };
 }
 exports.run = function(inputTools, callback){

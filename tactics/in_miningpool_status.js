@@ -12,7 +12,7 @@ exports.run = function(inputTools, callback){
         var work = v.split("://");
         work = work[work.length - 1].split('/');
         var poolname = work[0];
-        var url = v + '/index.php?page=api&action=getpoolstatus&api_key=' + config[poolname];
+        var url = v + '/index.php?page=api&action=public';
         async.inc();
         crawler.request_get_json(url, function(err, obj){
             if(err){
